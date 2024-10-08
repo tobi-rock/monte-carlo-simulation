@@ -43,7 +43,7 @@ Due to the use of Web Workers, some browsers may prevent local execution. To avo
 - **Standard Deviations**: Adjust the standard deviation in the utility values for each method.
   - **SOP Std Dev**
   - **ML Std Dev**
-  - **AStar Std Dev**
+  - **CF-A* Std Dev**
 
 These parameters can be adjusted in the menu at the bottom of the application.
 
