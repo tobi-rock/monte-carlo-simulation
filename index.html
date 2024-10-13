@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monte Carlo Simulation for Utility Analysis</title>
+    <meta
+      name="description"
+      content="Monte Carlo simulation for utility analysis"
+    />
+    <meta
+      name="keywords"
+      content="Monte Carlo Simulation, Utility Analysis, Simulation, Monte Carlo"
+    />
+    <meta name="author" content="Tobias Rock" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-full flex flex-col">
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto p-4 mb-20">
+      <h1 class="text-4xl font-bold mb-4 text-center">
+        Monte Carlo Simulation for Utility Analysis
+      </h1>
+
+      <!-- Progress Bar -->
+      <div id="progress-bar" class="w-full bg-gray-200 rounded-full h-4 mb-4">
+        <div
+          id="progress-bar-fill"
+          class="bg-blue-600 h-4 rounded-full"
+          style="width: 0%"
+        ></div>
+      </div>
+
+      <!-- Charts and Tables -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Distribution Function Charts -->
+        <h2 class="col-span-full text-2xl font-bold text-center mb-6">
+          Distribution Functions
+        </h2>
+        <div>
+          <canvas id="urban-chart"></canvas>
+        </div>
+        <div>
+          <canvas id="suburban-chart"></canvas>
+        </div>
+        <div>
+          <canvas id="airport-chart"></canvas>
+        </div>
+
+        <!-- Cumulative Distribution Function Charts -->
+        <div class="col-span-full border-t border-gray-200 my-4"></div>
+        <h2 class="col-span-full text-2xl font-bold text-center mb-6">
+          Cumulative Distribution Functions
+        </h2>
+        <div>
+          <canvas id="cdf-urban-chart"></canvas>
+        </div>
+        <div>
+          <canvas id="cdf-suburban-chart"></canvas>
+        </div>
+        <div>
+          <canvas id="cdf-airport-chart"></canvas>
+        </div>
+
+        <!-- Distribution Values Tables -->
+        <div class="col-span-full border-t border-gray-200 my-4"></div>
+        <h2 class="col-span-full text-2xl font-bold text-center mb-6">
+          Distribution Values
+        </h2>
+        <div id="table-urban-data"></div>
+        <div id="table-suburban-data"></div>
+        <div id="table-airport-data"></div>
+      </div>
+    </main>
+
+    <!-- Sticky Settings Menu -->
+    <div
+      class="fixed bottom-0 left-0 right-0 bg-white shadow p-4 flex items-center justify-between"
+    >
+      <div class="flex items-center space-x-4">
+        <label for="iterations">Iterations:</label>
+        <input
+          type="number"
+          id="iterations"
+          value="100000"
+          min="1000"
+          step="100"
+          class="border p-2 w-28"
+        />
+      </div>
+      <div class="flex items-center space-x-4">
+        <label>SOP Std Dev:</label>
+        <input
+          type="range"
+          id="std-dev-sop"
+          min="0.05"
+          max="2.00"
+          step="0.05"
+          value="0.20"
+          class="w-24"
+        />
+        <span id="std-dev-sop-value">0.20</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <label>ML Std Dev:</label>
+        <input
+          type="range"
+          id="std-dev-ml"
+          min="0.05"
+          max="2.00"
+          step="0.05"
+          value="0.32"
+          class="w-24"
+        />
+        <span id="std-dev-ml-value">0.32</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <label>CF-A* Std Dev:</label>
+        <input
+          type="range"
+          id="std-dev-astar"
+          min="0.05"
+          max="2.00"
+          step="0.05"
+          value="0.28"
+          class="w-24"
+        />
+        <span id="std-dev-astar-value">0.28</span>
+      </div>
+      <button id="recalculate" class="bg-blue-600 text-white px-4 py-2 rounded">
+        Recalculate
+      </button>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Main JavaScript File -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
